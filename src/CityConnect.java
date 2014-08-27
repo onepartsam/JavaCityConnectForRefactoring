@@ -44,17 +44,18 @@ public class CityConnect {
 	 * at which java String.format(...) method can insert values.
 	 * ====================================================================
 	 */
+	
+	// These are the possible command types
+	enum COMMAND_TYPE {
+		ADD_ROUTE, GET_DISTANCE, INVALID, EXIT
+	};
+	
 	private static final String MESSAGE_DISTANCE = "Distance from %1$s to %2$s is %3$s";
 	private static final String MESSAGE_NO_ROUTE = "No route exists from %1$s to %2$s!";
 	private static final String MESSAGE_ADDED = "Route from %1$s to %2$s with distance %3$skm added";
 	private static final String MESSAGE_INVALID_FORMAT = "invalid command format :%1$s";
 	private static final String WELCOME_MESSAGE = "Welcome to SimpleRouteStore!";
 	private static final String MESSAGE_NO_SPACE = "No more space to store locations";
-
-	// These are the possible command types
-	enum COMMAND_TYPE {
-		ADD_ROUTE, GET_DISTANCE, INVALID, EXIT
-	};
 
 	// This is used to indicate there is no suitable slot to store route
 	private static final int SLOT_UNAVAILABLE = -1;
@@ -107,7 +108,6 @@ public class CityConnect {
 			showToUser(feedback);
 		}
 	}
-
 	/*
 	 * ==============NOTE TO STUDENTS==========================================
 	 * If the reader wants a deeper understanding of the solution, he/she can 
@@ -203,9 +203,7 @@ public class CityConnect {
 		if (position == NOT_FOUND) {
 			return String.format(MESSAGE_NO_ROUTE, newStartLocation,
 					newEndLocation);
-		} 
-		else 
-		{
+		} else {
 			return String.format(MESSAGE_DISTANCE, newStartLocation, newEndLocation,
 					route[position][STORAGE_POSITION_DISTANCE]);
 		}
