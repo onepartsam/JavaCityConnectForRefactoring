@@ -333,8 +333,9 @@ public class CityConnect {
 	}
 
 	private static String getFirstWord(String userCommand) {
-		String commandTypeString = userCommand.trim().split("\\s+")[0];
-		return commandTypeString;
+		return userCommand.trim().split("\\s+")[0];
+		//String commandTypeString = userCommand.trim().split("\\s+")[0];
+		//return commandTypeString;
 	}
 
 	private static String[] splitParameters(String commandParametersString) {
